@@ -10,7 +10,6 @@ class HomePage extends StatelessWidget {
         child: Text(
           'shani',
           style: TextStyle(
-            fontFamily: 'Lato',
             fontWeight: FontWeight.bold,
           ),
         ),
