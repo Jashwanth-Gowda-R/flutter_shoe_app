@@ -1,4 +1,5 @@
 import 'package:ecommmerce_shoe_app/global_variables.dart';
+import 'package:ecommmerce_shoe_app/pages/product_details_page.dart';
 import 'package:ecommmerce_shoe_app/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 
@@ -110,13 +111,24 @@ class _HomePageState extends State<HomePage> {
                 itemCount: products.length,
                 itemBuilder: (context, index) {
                   final product = products[index];
-                  return ProductCard(
-                    image: product['imageUrl'] as String,
-                    price: product['price'] as double,
-                    title: product['title'] as String,
-                    backgroundColor: index.isEven
-                        ? const Color.fromRGBO(216, 240, 253, 1)
-                        : const Color.fromRGBO(245, 247, 249, 1),
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return ProductDetailsPage(product: product);
+                          },
+                        ),
+                      );
+                    },
+                    child: ProductCard(
+                      image: product['imageUrl'] as String,
+                      price: product['price'] as double,
+                      title: product['title'] as String,
+                      backgroundColor: index.isEven
+                          ? const Color.fromRGBO(216, 240, 253, 1)
+                          : const Color.fromRGBO(245, 247, 249, 1),
+                    ),
                   );
                 }),
           )
