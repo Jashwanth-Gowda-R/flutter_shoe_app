@@ -1,4 +1,5 @@
-import 'package:ecommmerce_shoe_app/pages/home_page.dart';
+import 'package:ecommmerce_shoe_app/global_variables.dart';
+import 'package:ecommmerce_shoe_app/pages/product_details_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -48,7 +49,9 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+      home: ProductDetailsPage(
+        product: products[0],
+      ),
     );
   }
 }
